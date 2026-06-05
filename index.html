@@ -98,6 +98,8 @@
   .helpbar .ht{font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink)}
   .helpbar .chips{display:flex;flex-wrap:wrap;gap:8px}
   .helpbar .chip{font-size:13px;font-weight:600;color:var(--accent-deep);background:#fff;border:1px solid #DCE3FA;border-radius:999px;padding:6px 13px}
+  .helpbar a.chip{transition:border-color .15s,background .15s}
+  .helpbar a.chip:hover{border-color:var(--accent);background:var(--accent-soft)}
 
   /* PROJECT UPDATES (demo panel) */
   .updates{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:var(--shadow-sm)}
@@ -310,6 +312,10 @@
   .welcome-top .welcome-date{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
   .welcome p{font-size:15.5px;color:var(--ink-2);margin:0 0 8px}
   .welcome .welcome-sign{font-size:14px;color:var(--muted);font-style:italic;margin:0}
+  .new-leads{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .lead-chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #DCE3FA;border-radius:999px;padding:6px 14px 6px 6px;font-weight:600;font-size:14px;color:var(--ink)}
+  .lead-ini{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none}
+  .no-new{font-size:14px;color:var(--muted);font-style:italic}
 
   /* ANNOUNCEMENTS read state */
   .updates-meta{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
@@ -374,21 +380,13 @@
 </nav>
 
 <!-- HOME VIEW (default) -->
-<section class="view active" id="view-home">
-  <header class="hero" id="top">
-    <div class="wrap">
-      <div class="eyebrow">Workada</div>
-      <h1>Welcome to the team</h1>
-      <p class="sub">Your starting point as a Workada pod lead — get settled in, then dive into the handbook.</p>
-    </div>
-  </header>
+<div class="view active" id="view-home">
 
-  <section class="wrap" style="padding-top:0;padding-bottom:26px">
+  <section class="wrap" style="padding-top:18px;padding-bottom:24px">
     <div class="welcome">
-      <div class="welcome-top"><span class="wave">👋</span><h2>Welcome aboard</h2></div>
-      <p>If you're reading this, you've just joined the Workada pod lead team — welcome! We're really glad to have you. You're stepping into a role that's central to how we deliver great work: you'll lead a pod of contributors, set the bar for quality, and be the person they count on day to day.</p>
-      <p>First thing: head to the pod lead Slack channel and introduce yourself — where you're based, what you've worked on before, and one thing you're excited about. We're a small, fast-moving team, and the quickest way to get up to speed is to get to know each other.</p>
-      <p>When you're ready, open the <b>Handbook</b> tab for everything you need to run your pod, and check the announcements below for the latest updates.</p>
+      <div class="welcome-top"><span class="wave">👋</span><h2>Welcome to the team</h2></div>
+      <p>Please give a warm welcome to the newest pod leads joining us — say hi in the pod lead Slack channel.</p>
+      <div class="new-leads" id="newLeads"></div>
     </div>
   </section>
 
@@ -406,12 +404,12 @@
       </div>
     </div>
   </section>
-</section>
+</div>
 
 <!-- HANDBOOK VIEW -->
 <main id="view-handbook" class="view">
 
-  <header class="hero">
+  <header class="hero" style="padding:22px 0 26px">
     <div class="wrap">
       <div class="eyebrow">Workada</div>
       <h1>Pod Lead Handbook</h1>
@@ -461,7 +459,7 @@
       <div class="row-item reveal"><span class="ri">05</span><div class="rc"><h3>Building the system</h3><p>Build materials, flag gaps, surface friction, and contribute to best practices.</p></div></div>
     </div>
     <p class="role-tag">A hybrid of a customer success manager and a quality lead for contributors.</p>
-    <div class="helpbar reveal"><span class="ht">You're not on your own — we support you with:</span><div class="chips"><span class="chip">Daily pod lead syncs</span><span class="chip">A dedicated pod lead channel</span><span class="chip">An escalations tracker</span></div></div>
+    <div class="helpbar reveal"><span class="ht">You're not on your own — we support you with:</span><div class="chips"><span class="chip">Daily pod lead syncs</span><span class="chip">A dedicated pod lead channel</span><a class="chip" href="https://docs.google.com/spreadsheets/d/11OKt4W0oEIPUOx7eu-ifoblhrU96GTO0iCAxdsIS_ec/edit?gid=597230981#gid=597230981" target="_blank" rel="noopener">An escalations tracker ↗</a></div></div>
   </section>
 
   <section class="wrap">
@@ -489,11 +487,6 @@
   <section class="wrap">
     <div class="sec-head reveal"><div class="kicker"><span class="kn">07</span><span class="kl">Onboarding</span></div><h2>Your first-days checklist</h2></div>
     <div class="checklist reveal" id="checklist"></div>
-    <div class="ramp reveal">
-      <h4>Recommended 2-week ramp</h4>
-      <p><span class="wk">Week 1:</span> platform &amp; tools, read the playbook, shadow an experienced pod lead.</p>
-      <p><span class="wk">Week 2:</span> reverse-shadow (you run it, they observe) against clear milestones, plus a weekly sync.</p>
-    </div>
   </section>
 
   <div class="wrap">
@@ -634,6 +627,9 @@ const ROSTER = [
   {name:"India", count:null}
 ];
 
+/* New pod leads to welcome — set this to whoever is NEW vs. yesterday (they appear once, then remove them next update). */
+const NEW_PODLEADS = ["Kelsey Mangis"];
+
 const FAQ = [
   {id:"dashboard", icon:"🖥️", title:"Dashboard & Portal Access", subt:"Getting into your pod lead portal", items:[
     {q:"How do I access my pod lead dashboard?", a:"Log in via <a href='https://workada.co' target='_blank' rel='noopener'>workada.co</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your MultiMango (MM) project portal — this is where you manage your contributors."},
@@ -682,6 +678,11 @@ function initials(n){const c=n.replace(/[\[\]]/g,'').trim();const p=c.split(/\s+
     return '<tr><td class="name">'+p.name+'</td><td class="num">'+c+'</td></tr>';}).join('');
   g.innerHTML='<table class="rtable"><thead><tr><th>Pod Lead</th><th class="num">Contributors in pod</th></tr></thead><tbody>'+rows+
     '</tbody><tfoot><tr><td>'+ROSTER.length+' pod leads</td><td class="num">'+(known?total+' total':'—')+'</td></tr></tfoot></table>';
+})();
+
+(function(){const g=$('#newLeads');if(!g)return;
+  if(!NEW_PODLEADS.length){g.innerHTML='<span class="no-new">No new pod leads today.</span>';return;}
+  g.innerHTML=NEW_PODLEADS.map(n=>'<span class="lead-chip"><span class="lead-ini">'+initials(n)+'</span>'+n+'</span>').join('');
 })();
 
 (function(){const p=$('#pills');FAQ.forEach(cat=>{const b=make('button','pill');const n=cat.items.length;
