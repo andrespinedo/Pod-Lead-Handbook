@@ -340,6 +340,16 @@
   .ann-card.read .ann-text{text-decoration:line-through;text-decoration-color:var(--muted);color:var(--muted)}
   @media(max-width:560px){.ann-card{flex-basis:84%;max-width:84%}}
 
+  /* RESOURCES */
+  .reslist{display:flex;flex-direction:column;gap:12px}
+  .reslink{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);transition:border-color .15s,transform .15s}
+  .reslink:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .res-ic{font-size:22px;flex:none}
+  .res-body{display:flex;flex-direction:column;flex:1;min-width:0}
+  .res-name{font-weight:700;font-size:15.5px}
+  .res-sub{font-size:13px;color:var(--muted)}
+  .res-arrow{color:var(--accent);font-weight:700;flex:none}
+
   /* ROSTER TABLE */
   .rtable{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .rtable th,.rtable td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);font-size:15px}
@@ -375,6 +385,7 @@
       <button class="tab" data-view="faq">FAQ</button>
       <button class="tab" data-view="jd">Job Description</button>
       <button class="tab" data-view="metrics">Metrics</button>
+      <button class="tab" data-view="resources">Resources</button>
       <a class="tab" href="https://docs.google.com/spreadsheets/d/11OKt4W0oEIPUOx7eu-ifoblhrU96GTO0iCAxdsIS_ec/edit?gid=597230981#gid=597230981" target="_blank" rel="noopener">Issues Tracker ↗</a>
       <a class="btn accent" href="https://workada.co" target="_blank" rel="noopener">Dashboard →</a>
     </div>
@@ -470,7 +481,7 @@
       <div class="j-step reveal"><div class="j-node">1</div><div class="j-label"><h4>Signup</h4><p>A contributor is acquired and screened, then cleared to onboard.</p></div></div>
       <div class="j-step reveal"><div class="j-node">2</div><div class="j-label"><h4>Onboarding Call</h4><p>A guided onboarding call — the high-leverage first impression.</p></div></div>
       <div class="j-step reveal"><div class="j-node">3</div><div class="j-label"><h4>Assigned to a Pod Lead</h4><p>They're assigned to a pod lead and join an onboarding pod (20–25), where they're trained, set up, and paid through their first project.</p></div></div>
-      <div class="j-step reveal"><div class="j-node done">4</div><div class="j-label"><h4>Tasking</h4><p>Live and earning on MultiMango.</p></div></div>
+      <div class="j-step reveal"><div class="j-node done">4</div><div class="j-label"><h4>Tasking</h4><p>Live and earning on Workada.</p></div></div>
     </div>
   </section>
 
@@ -533,7 +544,6 @@
       <div class="m"><div class="mk">Type</div><div class="mv">Contract</div></div>
       <div class="m"><div class="mk">Hours</div><div class="mv">Starts at ~20 hrs/week, with the opportunity to scale to 40 hrs/week based on workload and performance</div></div>
       <div class="m"><div class="mk">Location</div><div class="mv">Remote</div></div>
-      <div class="m"><div class="mk">Compensation</div><div class="mv">$[rate]/hour</div></div>
     </div>
 
     <h3>About the role</h3>
@@ -574,6 +584,33 @@
     <div class="soon-ic">📊</div>
     <h3>Coming soon</h3>
     <p>Pod-level quality, hours, completion, and retention metrics will live here.</p>
+  </div>
+</section>
+
+<!-- RESOURCES VIEW -->
+<section class="wrap view" id="view-resources">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Resources</span></div><h2>Helpful links</h2><p>Quick access to the docs and tools you'll use most.</p></div>
+  <div class="reslist">
+    <a class="reslink" href="https://docs.google.com/spreadsheets/d/1Gw-QOi-Wk8E-vLc8wd23d8tSh__A-cYS-2ruSY7aTKI/edit?gid=540298163#gid=540298163" target="_blank" rel="noopener">
+      <span class="res-ic">📊</span>
+      <span class="res-body"><span class="res-name">Prompt Creation Tracker</span><span class="res-sub">Google Sheet</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
+    <a class="reslink" href="https://docs.google.com/document/d/1CPj-cwRice49tifgTbdiM5STHCU0Uf9JcnQy0KjxGFU/edit?tab=t.0" target="_blank" rel="noopener">
+      <span class="res-ic">📝</span>
+      <span class="res-body"><span class="res-name">Collection-to-Image Prompt Writing</span><span class="res-sub">Google Doc</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
+    <a class="reslink" href="https://workada.com/tasks" target="_blank" rel="noopener">
+      <span class="res-ic">🗂️</span>
+      <span class="res-body"><span class="res-name">Workada Tasking Dashboard</span><span class="res-sub">workada.com/tasks</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
+    <a class="reslink" href="https://website-rho-woad-p1xet1wo5w.vercel.app/" target="_blank" rel="noopener">
+      <span class="res-ic">🎓</span>
+      <span class="res-body"><span class="res-name">Training Modules for Image-to-Image Comparison</span><span class="res-sub">Training site</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
   </div>
 </section>
 
@@ -633,22 +670,22 @@ const NEW_PODLEADS = ["Kelsey Mangis"];
 
 const FAQ = [
   {id:"dashboard", icon:"🖥️", title:"Dashboard & Portal Access", subt:"Getting into your pod lead portal", items:[
-    {q:"How do I access my pod lead dashboard?", a:"Log in via <a href='https://workada.co' target='_blank' rel='noopener'>workada.co</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your MultiMango (MM) project portal — this is where you manage your contributors."},
-    {q:"What can I see and do in the portal? (How do I access contributors' tasks to give feedback?)", a:"The portal gives you full visibility into your pod:<ul><li>📊 <b>MM Project Dashboard</b> — status of each contributor.</li><li>🎓 <b>Training Progress</b> — click the button on your pod view to see each contributor's attempts, answers, and AI feedback.</li><li>✍️ <b>Create Training Tasks</b> — build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions."}
+    {q:"How do I access my pod lead dashboard?", a:"Log in via <a href='https://workada.co' target='_blank' rel='noopener'>workada.co</a> using the <b>Login</b> button in the top-right corner. Once logged in you'll see your main dashboard. From there, click the <b>blue button in the top right</b> to open your Workada project portal — this is where you manage your contributors."},
+    {q:"What can I see and do in the portal? (How do I access contributors' tasks to give feedback?)", a:"The portal gives you full visibility into your pod:<ul><li>📊 <b>Workada Project Dashboard</b> — status of each contributor.</li><li>🎓 <b>Training Progress</b> — click the button on your pod view to see each contributor's attempts, answers, and AI feedback.</li><li>✍️ <b>Create Training Tasks</b> — build custom training content.</li></ul>See the <a href='https://docs.google.com/document/d/1jPvFKKYZJ12hdIU5h68kkhtf9VC0G7e8xM5DZckd6ro/edit?tab=t.xkvle9fotpz8' target='_blank' rel='noopener'>Create Training Content guide</a> for step-by-step instructions."}
   ]},
   {id:"onboarding", icon:"🤝", title:"Onboarding Playbook", subt:"Bringing new contributors onto the platform", items:[
     {q:"What is the full onboarding flow for new contributors?", a:"<ol><li><b>Screening Interview</b> — pass → onboarding call; fail → they don't proceed.</li><li><b>Welcome Page</b> on the Workada dashboard.</li><li><b>Pod Lead Onboarding Call</b> — schedule a 1-hour call using the <a href='https://docs.google.com/presentation/d/1R-l3S7EeD6wco2Ur72CBqa0d4iGQpQ_OqvQxZWIu_CQ/edit#slide=id.g3e9857c178e_17_37' target='_blank' rel='noopener'>onboarding slide deck</a>. Operators help initially, then you run it solo.</li><li><b>Live Training Tasks</b> — 1–2 sample tasks live on the call.</li><li><b>Training Task Flow</b> — they train independently until you approve.</li></ol>"},
     {q:"What do I need to complete during the onboarding call?", a:"Walk through every phase of the slide deck and check off all of:<ul><li>Contributor joins the <b>contributor onboarding Slack channel</b> and your <b>pod Slack channel</b>.</li><li>Has their <b>workada.co email</b> set up.</li><li>Has access to the <a href='https://forms.gle/tAW5zof2tqew77pF8' target='_blank' rel='noopener'>Google Hour Reporting Form</a> (we no longer use Hubstaff).</li><li>All <b>documents completed, signed, and uploaded</b>.</li><li>Completes <b>1–2 live training tasks</b> and passes.</li></ul>"},
-    {q:"How does a contributor get activated on MultiMango?", a:"<ol><li>They see an <b>“Off Platform Setup”</b> page with a MultiMango link.</li><li>They create a <a href='https://multimango.com' target='_blank' rel='noopener'>multimango.com</a> account using their <b>workada.co email</b> (shown on their dashboard).</li><li>They click the <b>blue confirmation button</b>.</li><li>An operator — <b>Nitin, Vico, or David</b> — approves on the backend.</li><li>They get a confirmation page and can start tasking.</li></ol><span class='warn'>⚠️ Contributors must use their workada.co email, not personal.</span>"}
+    {q:"How does a contributor get activated on Workada?", a:"<ol><li>They see an <b>“Off Platform Setup”</b> page with a tasking link.</li><li>They create a <a href='https://workada.com/tasks' target='_blank' rel='noopener'>workada.com/tasks</a> account using their <b>workada.co email</b> (shown on their dashboard).</li><li>They click the <b>blue confirmation button</b>.</li><li>An operator — <b>Nitin, Vico, or David</b> — approves on the backend.</li><li>They get a confirmation page and can start tasking.</li></ol><span class='warn'>⚠️ Contributors must use their workada.co email, not personal.</span>"}
   ]},
   {id:"training", icon:"📋", title:"Training & Review", subt:"Reviewing progress and approving tasking", items:[
     {q:"How do I review a contributor's training progress?", a:"From your pod dashboard, click the button next to a contributor's row, then:<ol><li>Click <b>Attempts</b> to see all submissions.</li><li>Review their <b>answers</b>, the <b>answer key</b>, and the <b>AI feedback</b> per question.</li><li>Identify strengths and struggles.</li></ol>Use this to coach them on a call before approving."},
-    {q:"How do I approve or fail a contributor after training?", a:"When training finishes they move to <b>Under Review</b>.<ol><li>Click the review button next to their name.</li><li>A profile opens with strengths, weaknesses, all attempts, and performance data.</li><li>Use your judgment to pass or fail.</li></ol>✅ <b>Passed</b> → Off Platform Setup (MultiMango account). ❌ <b>Failed</b> → they don't advance; communicate feedback via Slack."},
-    {q:"What does a contributor see after being approved?", a:"Their dashboard shows the <b>Off Platform Setup</b> screen: a link to multimango.com (sign up with workada.co email), their workada.co email for reference, and a blue confirmation button. After operator approval they see a final confirmation page and can begin tasking."}
+    {q:"How do I approve or fail a contributor after training?", a:"When training finishes they move to <b>Under Review</b>.<ol><li>Click the review button next to their name.</li><li>A profile opens with strengths, weaknesses, all attempts, and performance data.</li><li>Use your judgment to pass or fail.</li></ol>✅ <b>Passed</b> → Off Platform Setup (Workada tasking account). ❌ <b>Failed</b> → they don't advance; communicate feedback via Slack."},
+    {q:"What does a contributor see after being approved?", a:"Their dashboard shows the <b>Off Platform Setup</b> screen: a link to workada.com/tasks (sign up with workada.co email), their workada.co email for reference, and a blue confirmation button. After operator approval they see a final confirmation page and can begin tasking."}
   ]},
   {id:"support", icon:"💬", title:"Payments & Support", subt:"Getting paid and getting help", items:[
     {q:"How and when do pod leads (and contributors) get paid?", a:"Pod leads and contributors are paid <b>weekly via PayPal</b>, sent to the PayPal email you gave at signup. Keep that email correct on your Workada profile."},
-    {q:"Where do I go for support or escalations?", a:"Email the Workada support team at <a href='mailto:support@workada.co'>support@workada.co</a>. For contributor MultiMango activations, ping an operator on Slack — <b>Nitin, Vico, or David</b> handle backend approvals and platform issues."},
+    {q:"Where do I go for support or escalations?", a:"Email the Workada support team at <a href='mailto:support@workada.co'>support@workada.co</a>. For contributor tasking activations, ping an operator on Slack — <b>Nitin, Vico, or David</b> handle backend approvals and platform issues."},
     {q:"Payment issues — who do we report them to, and how do we know an issue is resolved without chasing?", a:"For payment problems, contact <a href='mailto:support@workada.co'>support@workada.co</a>. You can also log contributor payment issues in the <b>Contributor Issues Tracker</b> (reviewed daily) or raise them in the <b>daily pod lead syncs</b>."}
   ]},
   {id:"pods", icon:"🧑‍💻", title:"Pod & Projects", subt:"Running tasks across your pod", items:[
@@ -656,10 +693,10 @@ const FAQ = [
   ]},
   {id:"contributor-ref", icon:"📘", title:"Contributor Reference", subt:"What your contributors see and ask about", items:[
     {q:"What is the contributor funnel (the 5 stages)?", a:"<b>Welcome</b> (account created) → <b>Onboarding</b> (the call with you) → <b>Setup</b> (4 quick tasks; can run alongside Training) → <b>Training</b> (7 questions; you review) → <b>Tasking</b> (unlocks once Setup + training review are both done)."},
-    {q:"What are the 4 Setup tasks?", a:"(any order) <ol><li>Join the Workada Slack (use workada.co email).</li><li>Set up time tracking, submit hours daily.</li><li>Accept the Terms of Use (one-time).</li><li>Create a MultiMango account at multimango.com.</li></ol>"},
+    {q:"What are the 4 Setup tasks?", a:"(any order) <ol><li>Join the Workada Slack (use workada.co email).</li><li>Set up time tracking, submit hours daily.</li><li>Accept the Terms of Use (one-time).</li><li>Create a Workada tasking account at workada.com/tasks.</li></ol>"},
     {q:"How does training work for contributors?", a:"7 questions with feedback on submissions. They can redo a task unlimited times, review <b>“Previous Attempts”</b> (top-right of the task view), and should go over attempts with you. You approve when ready."},
-    {q:"How do contributors create a MultiMango account?", a:"Sign up at <a href='https://multimango.com' target='_blank' rel='noopener'>multimango.com</a> with the <b>workada.co email</b>. <span class='warn'>⚠️ The MultiMango verification code goes to their personal email</span> (the one used to create the workada.co account), not the workada.co inbox."},
-    {q:"When does Tasking unlock?", a:"When all 4 Setup tasks are done <b>and</b> training review is approved. Then they log in at multimango.com to see available projects."},
+    {q:"How do contributors create a Workada tasking account?", a:"Sign up at <a href='https://workada.com/tasks' target='_blank' rel='noopener'>workada.com/tasks</a> with the <b>workada.co email</b>. <span class='warn'>⚠️ The verification code goes to their personal email</span> (the one used to create the workada.co account), not the workada.co inbox."},
+    {q:"When does Tasking unlock?", a:"When all 4 Setup tasks are done <b>and</b> training review is approved. Then they log in at workada.com/tasks to see available projects."},
     {q:"How and when do contributors get paid?", a:"PayPal <b>every Tuesday</b> for the prior week. Pay week: Tuesday 12:01 AM PST → Monday 11:59 PM PST. Submit by Monday 11:59 PM PST to be in that week's payout."},
     {q:"How do contributors log hours?", a:"Daily via the <a href='https://forms.gle/wbL5QMQe2k86ez5i7' target='_blank' rel='noopener'>Hour Logging Form</a> — total platform hours + tasks completed. Multiple submissions per day are fine.<table><tr><th>Time Zone</th><th>Day Starts</th><th>Day Ends</th></tr><tr><td>Pacific (PST)</td><td>12:00 AM</td><td>12:00 AM next day</td></tr><tr><td>Mountain (MST)</td><td>1:00 AM</td><td>1:00 AM next day</td></tr><tr><td>Central (CST)</td><td>2:00 AM</td><td>2:00 AM next day</td></tr><tr><td>Eastern (EST)</td><td>3:00 AM</td><td>3:00 AM next day</td></tr></table>Backdate within the same pay week; prior-week misses go on the current week. Always round <b>up</b> to the nearest 0.5 hour."}
   ]}
@@ -799,7 +836,7 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
 
 /* ===== TABS ===== */
 (function(){
-  const VIEWS=['home','handbook','roster','faq','jd','metrics'];
+  const VIEWS=['home','handbook','roster','faq','jd','metrics','resources'];
   function showView(name){
     if(!VIEWS.includes(name))name='home';
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
