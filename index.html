@@ -340,6 +340,35 @@
   .ann-card.read .ann-text{text-decoration:line-through;text-decoration-color:var(--muted);color:var(--muted)}
   @media(max-width:560px){.ann-card{flex-basis:84%;max-width:84%}}
 
+  /* TEMPLATES */
+  .tpl-group{font-family:var(--display);font-weight:700;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:30px 0 14px}
+  .tpl-group:first-of-type{margin-top:6px}
+  .tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tpl-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm)}
+  .tpl-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:3px}
+  .tpl-head h4{font-family:var(--display);font-weight:700;font-size:15.5px}
+  .tpl-copy{font-size:12.5px;font-weight:700;color:var(--accent-deep);background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+  .tpl-copy:hover{background:#E1E8FE}
+  .tpl-copy.copied{background:#E6F6EC;border-color:#BFE6CC;color:#1B7F44}
+  .tpl-note{font-size:13px;color:var(--muted);margin:0 0 10px}
+  .tpl-body{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;white-space:pre-wrap;line-height:1.55;margin:0}
+  .ann-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:13px}
+  .ann-actions .ann-read{border-top:none;padding-top:0}
+  @media(max-width:680px){.tpl-grid{grid-template-columns:1fr}}
+
+  /* QUALITY SCALE */
+  .qscale{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+  .qscale th,.qscale td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  .qscale thead th{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+  .qscale tbody tr:last-child td{border-bottom:none}
+  .qscale td.qs{font-family:var(--display);font-weight:800;font-size:18px;color:var(--accent-deep);width:46px}
+  .qscale .num{text-align:right;white-space:nowrap}
+  .qd{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;display:inline-block}
+  .qd.yes{background:#FCE8E8;color:#B42318}
+  .qd.no{background:#E6F6EC;color:#1B7F44}
+  .qnote{font-size:14px;color:var(--ink-2);margin-top:16px;background:var(--accent-soft);border:1px solid #DCE3FA;border-radius:12px;padding:14px 16px}
+  @media(max-width:600px){.qscale th:nth-child(3),.qscale td:nth-child(3){display:none}}
+
   /* RESOURCES */
   .reslist{display:flex;flex-direction:column;gap:12px}
   .reslink{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);transition:border-color .15s,transform .15s}
@@ -383,10 +412,11 @@
       <button class="tab" data-view="handbook">Handbook</button>
       <button class="tab" data-view="roster">Roster</button>
       <button class="tab" data-view="faq">FAQ</button>
+      <button class="tab" data-view="templates">Templates</button>
       <button class="tab" data-view="jd">Job Description</button>
       <button class="tab" data-view="metrics">Metrics</button>
       <button class="tab" data-view="resources">Resources</button>
-      <a class="tab" href="https://docs.google.com/spreadsheets/d/11OKt4W0oEIPUOx7eu-ifoblhrU96GTO0iCAxdsIS_ec/edit?gid=597230981#gid=597230981" target="_blank" rel="noopener">Issues Tracker ↗</a>
+      <a class="tab" href="https://docs.google.com/spreadsheets/d/1Ui96X12-NEcRHSEa_VwNqFRL6cpBSNOQrtRJQE1tEJQ/edit?resourcekey=&gid=1105830089#gid=1105830089" target="_blank" rel="noopener">Issue Tracker ↗</a>
       <a class="btn accent" href="https://workada.co" target="_blank" rel="noopener">Dashboard →</a>
     </div>
   </div>
@@ -406,13 +436,13 @@
   <section class="wrap" style="padding-top:0;padding-bottom:40px">
     <div class="ann-head">
       <h2>📣 Announcements</h2>
-      <span class="updates-meta">Last updated 3:00 PM PST · Friday, June 5</span>
+      <span class="updates-meta">Last updated · Wednesday, June 10</span>
     </div>
     <p class="ann-lede">Swipe through and mark each one as read once you've shared it with your pod.</p>
     <div class="ann-row">
       <div class="ann-card">
-        <span class="u-tag upd">Updated</span>
-        <p class="ann-text"><b>We're migrating payments to Stripe.</b> Please ask your pod members to connect their Stripe accounts as soon as possible.</p>
+        <span class="u-tag rem">Reminder</span>
+        <p class="ann-text"><b>Pod lead training this Friday, 11:30 AM–1:30 PM Pacific.</b> We'll be reviewing quality together — please plan to attend.</p>
         <label class="ann-read"><input type="checkbox" class="u-read" /><span>Mark as read</span></label>
       </div>
     </div>
@@ -472,7 +502,7 @@
       <div class="row-item reveal"><span class="ri">05</span><div class="rc"><h3>Building the system</h3><p>Build materials, flag gaps, surface friction, and contribute to best practices.</p></div></div>
     </div>
     <p class="role-tag">A hybrid of a customer success manager and a quality lead for contributors.</p>
-    <div class="helpbar reveal"><span class="ht">You're not on your own — we support you with:</span><div class="chips"><span class="chip">Daily pod lead syncs</span><span class="chip">A dedicated pod lead channel</span><a class="chip" href="https://docs.google.com/spreadsheets/d/11OKt4W0oEIPUOx7eu-ifoblhrU96GTO0iCAxdsIS_ec/edit?gid=597230981#gid=597230981" target="_blank" rel="noopener">An escalations tracker ↗</a></div></div>
+    <div class="helpbar reveal"><span class="ht">You're not on your own — we support you with:</span><div class="chips"><span class="chip">Daily pod lead syncs</span><span class="chip">A dedicated pod lead channel</span><a class="chip" href="https://docs.google.com/spreadsheets/d/1Ui96X12-NEcRHSEa_VwNqFRL6cpBSNOQrtRJQE1tEJQ/edit?resourcekey=&gid=1105830089#gid=1105830089" target="_blank" rel="noopener">An issue tracker ↗</a></div></div>
   </section>
 
   <section class="wrap">
@@ -500,6 +530,23 @@
   <section class="wrap">
     <div class="sec-head reveal"><div class="kicker"><span class="kn">07</span><span class="kl">Onboarding</span></div><h2>Your first-days checklist</h2></div>
     <div class="checklist reveal" id="checklist"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head reveal"><div class="kicker"><span class="kn">08</span><span class="kl">Quality</span></div><h2>The 1–5 quality bar</h2><p>Score every task the same way, so "good" means the same thing in every pod.</p></div>
+    <div class="reveal">
+      <table class="qscale">
+        <thead><tr><th>Score</th><th>Meaning</th><th>What you do</th><th class="num">Defect?</th></tr></thead>
+        <tbody>
+          <tr><td class="qs">1</td><td><b>Dishonest</b></td><td>Bad-faith work — report it.</td><td class="num"><span class="qd yes">Defect</span></td></tr>
+          <tr><td class="qs">2</td><td><b>Defect</b></td><td>Meaningful errors. Fix it or send it back with feedback.</td><td class="num"><span class="qd yes">Defect</span></td></tr>
+          <tr><td class="qs">3</td><td><b>Borderline</b></td><td>Barely acceptable — passes, but coach if it becomes a pattern.</td><td class="num"><span class="qd no">Clean</span></td></tr>
+          <tr><td class="qs">4</td><td><b>Good</b></td><td>Largely correct, no meaningful issues. Let it flow.</td><td class="num"><span class="qd no">Clean</span></td></tr>
+          <tr><td class="qs">5</td><td><b>Stellar</b></td><td>Above and beyond — a promotion signal.</td><td class="num"><span class="qd no">Clean</span></td></tr>
+        </tbody>
+      </table>
+      <p class="qnote"><b>Defect rate = the share of a pod's scores that are 1s or 2s.</b> Rolled up across your pod, that's the single number you're graded on — driving it down is the job. (Project-specific criteria for what separates a 3 from a 4 are set with Ops per customer.)</p>
+    </div>
   </section>
 
   <div class="wrap">
@@ -578,6 +625,53 @@
   </article>
 </section>
 
+<!-- TEMPLATES VIEW -->
+<section class="wrap view" id="view-templates">
+  <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Templates</span></div><h2>Say the right thing, fast</h2><p>Copy, swap the name, send. Grouped by the moment you need them.</p></div>
+
+  <h3 class="tpl-group">Onboarding</h3>
+  <div class="tpl-grid">
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Welcome message</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">Right after their account is created.</p>
+      <pre class="tpl-body">Hi [Name] — welcome to the pod! I'm [your name], your pod lead and your go-to for anything you need. Next up is a quick onboarding call where I'll walk you through setup and we'll do a task together. Grab a time here → [link]</pre>
+    </div>
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Training-day invite</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">For your group onboarding session.</p>
+      <pre class="tpl-body">Training day is [day] at [time]! We'll get your accounts set up, do a task together, and answer any questions — no question is too small. Join here → [link]</pre>
+    </div>
+  </div>
+
+  <h3 class="tpl-group">Feedback</h3>
+  <div class="tpl-grid">
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Feedback after a defect</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">Clear, kind, and actionable.</p>
+      <pre class="tpl-body">Hey [Name], solid progress! One thing to tighten: on [task], [detail] should be [correct approach] — here's why: [reason]. Give the next one a try and tag me if anything's fuzzy. You're close.</pre>
+    </div>
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Sending someone back to training</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">When re-ramping beats removing.</p>
+      <pre class="tpl-body">Hi [Name] — I'm moving you back to training for a bit so we can rebuild [skill]. This isn't a strike; it's the fastest way to get you steady. Let's go over your recent attempts together on [day].</pre>
+    </div>
+  </div>
+
+  <h3 class="tpl-group">Retention &amp; celebration</h3>
+  <div class="tpl-grid">
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Re-engage a quiet contributor</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">Before someone becomes a vacancy.</p>
+      <pre class="tpl-body">Hi [Name] — I haven't seen you in the queue this week and wanted to check in. Everything okay? If something's blocking you or your schedule shifted, let me know and we'll sort it out.</pre>
+    </div>
+    <div class="tpl-card">
+      <div class="tpl-head"><h4>Celebrate a promotion</h4><button class="tpl-copy" type="button">❏ Copy</button></div>
+      <p class="tpl-note">Make wins visible to the whole pod.</p>
+      <pre class="tpl-body">🎉 Big shout-out to [Name], who just leveled up! This is what great looks like — congrats, well earned. Keep it going, team.</pre>
+    </div>
+  </div>
+</section>
+
 <section class="wrap view" id="view-metrics">
   <div class="sec-head"><div class="kicker"><span class="kn">·</span><span class="kl">Metrics</span></div><h2>Pod metrics</h2></div>
   <div class="soon">
@@ -609,6 +703,16 @@
     <a class="reslink" href="https://website-rho-woad-p1xet1wo5w.vercel.app/" target="_blank" rel="noopener">
       <span class="res-ic">🎓</span>
       <span class="res-body"><span class="res-name">Training Modules for Image-to-Image Comparison</span><span class="res-sub">Training site</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
+    <a class="reslink" href="https://docs.google.com/forms/d/e/1FAIpQLSfFa6wZV_at3tp39qGDpnhsPkUnkzeaXEn7JPOz0jY2dTxS8w/viewform?usp=header" target="_blank" rel="noopener">
+      <span class="res-ic">📨</span>
+      <span class="res-body"><span class="res-name">Contributor Issue Form</span><span class="res-sub">Share with your pod — where contributors submit issues</span></span>
+      <span class="res-arrow">↗</span>
+    </a>
+    <a class="reslink" href="https://docs.google.com/spreadsheets/d/1Ui96X12-NEcRHSEa_VwNqFRL6cpBSNOQrtRJQE1tEJQ/edit?resourcekey=&gid=1105830089#gid=1105830089" target="_blank" rel="noopener">
+      <span class="res-ic">🗒️</span>
+      <span class="res-body"><span class="res-name">Issue Tracker</span><span class="res-sub">Track &amp; resolve submitted issues</span></span>
       <span class="res-arrow">↗</span>
     </a>
   </div>
@@ -686,7 +790,7 @@ const FAQ = [
   {id:"support", icon:"💬", title:"Payments & Support", subt:"Getting paid and getting help", items:[
     {q:"How and when do pod leads (and contributors) get paid?", a:"Pod leads and contributors are paid <b>weekly via PayPal</b>, sent to the PayPal email you gave at signup. Keep that email correct on your Workada profile."},
     {q:"Where do I go for support or escalations?", a:"Email the Workada support team at <a href='mailto:support@workada.co'>support@workada.co</a>. For contributor tasking activations, ping an operator on Slack — <b>Nitin, Vico, or David</b> handle backend approvals and platform issues."},
-    {q:"Payment issues — who do we report them to, and how do we know an issue is resolved without chasing?", a:"For payment problems, contact <a href='mailto:support@workada.co'>support@workada.co</a>. You can also log contributor payment issues in the <b>Contributor Issues Tracker</b> (reviewed daily) or raise them in the <b>daily pod lead syncs</b>."}
+    {q:"Payment issues — who do we report them to, and how do we know an issue is resolved without chasing?", a:"For payment problems, contact <a href='mailto:support@workada.co'>support@workada.co</a>. Contributors can log any issue via the <a href='https://docs.google.com/forms/d/e/1FAIpQLSfFa6wZV_at3tp39qGDpnhsPkUnkzeaXEn7JPOz0jY2dTxS8w/viewform?usp=header' target='_blank' rel='noopener'>Contributor Issue Form</a>, and you can follow progress in the <a href='https://docs.google.com/spreadsheets/d/1Ui96X12-NEcRHSEa_VwNqFRL6cpBSNOQrtRJQE1tEJQ/edit?resourcekey=&gid=1105830089#gid=1105830089' target='_blank' rel='noopener'>Issue Tracker</a> (reviewed daily) or raise them in the <b>daily pod lead syncs</b>."}
   ]},
   {id:"pods", icon:"🧑‍💻", title:"Pod & Projects", subt:"Running tasks across your pod", items:[
     {q:"Can contributors work on a different project if theirs runs out of tasks?", a:"Yes — but we want all pods working on the same projects at the same time. So if your pod runs out of tasks, let us know and we'll direct your group to the correct project."}
@@ -836,7 +940,7 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
 
 /* ===== TABS ===== */
 (function(){
-  const VIEWS=['home','handbook','roster','faq','jd','metrics','resources'];
+  const VIEWS=['home','handbook','roster','faq','templates','jd','metrics','resources'];
   function showView(name){
     if(!VIEWS.includes(name))name='home';
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -852,6 +956,17 @@ $('#fbBtn').addEventListener('click',()=>openFeedback(''));
 
 /* ===== Announcement read toggle ===== */
 document.addEventListener('change',e=>{const cb=e.target.closest('.ann-card .u-read');if(!cb)return;const card=cb.closest('.ann-card');if(card)card.classList.toggle('read',cb.checked);});
+
+/* ===== Copy buttons (templates + announcements) ===== */
+function fallbackCopy(t){const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.tpl-copy');if(!btn)return;
+  const card=btn.closest('.tpl-card, .ann-card');const body=card&&card.querySelector('.tpl-body');if(!body)return;
+  const text=body.textContent.trim();
+  const done=()=>{const o=btn.dataset.label||(btn.dataset.label=btn.textContent);btn.textContent='✓ Copied';btn.classList.add('copied');setTimeout(()=>{btn.textContent=o;btn.classList.remove('copied');},1500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(()=>{fallbackCopy(text);done();});}
+  else{fallbackCopy(text);done();}
+});
 </script>
 </body>
 </html>
