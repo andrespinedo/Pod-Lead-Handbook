@@ -165,8 +165,105 @@
   .sop-body a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600}
   .sop-body a:hover{color:var(--accent-deep)}
   .sop-body p{font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65}
+  .sq-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 8px}
+  .sq-cell{border:1px solid var(--line-strong);border-radius:12px;padding:12px 10px;text-align:center;background:#F7F9FC}
+  .sq-cell b{display:block;font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink);margin-bottom:2px}
+  .sq-cell span{display:block;font-size:11.5px;color:var(--muted);line-height:1.4;margin-bottom:7px}
+  .sq-cell a{font-size:12px;font-weight:600;color:var(--accent-text);text-decoration:none;word-break:break-word}
+  .sq-cell a:hover{text-decoration:underline}
+  @media(max-width:600px){.sq-strip{grid-template-columns:1fr}}
+  /* Support Queue clean flow chart */
+  .sqf{--w:440px;display:flex;flex-direction:column;align-items:center;gap:0;margin:6px 0 2px}
+  .sqf *{box-sizing:border-box}
+  .sqf-line{width:2px;height:22px;background:var(--line-strong);position:relative;flex:none}
+  .sqf-line::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--line-strong)}
+  .sqf-pill{max-width:var(--w);font-family:var(--display);font-weight:700;font-size:15px;color:#fff;padding:13px 26px;border-radius:999px;text-align:center;box-shadow:0 6px 16px -8px rgba(18,35,69,.5)}
+  .sqf-start{background:var(--ink)}
+  .sqf-end{background:var(--accent-text)}
+  .sqf-box{width:100%;max-width:var(--w);background:var(--surface);border:1px solid var(--line-strong);border-radius:16px;padding:15px 18px;text-align:center;box-shadow:0 1px 2px rgba(18,35,69,.05)}
+  .sqf-box h4{font-family:var(--display);font-weight:700;font-size:15.5px;color:var(--ink);margin:0 0 4px}
+  .sqf-box p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+  .sqf-box a,.sqf-route a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+  .sqf-route{margin-top:10px}
+  .sqf-dec{width:100%;max-width:var(--w);background:var(--accent-soft);border:1.5px solid var(--accent);border-radius:16px;padding:14px 18px;text-align:center}
+  .sqf-dec h4{font-family:var(--display);font-weight:700;font-size:15px;color:var(--accent-deep);margin:0;display:flex;align-items:center;justify-content:center;gap:9px}
+  .sqf-qb{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .sqf-branch{width:100%;max-width:var(--w);display:flex;gap:12px;margin-top:12px}
+  .sqf-path{flex:1;border-radius:13px;padding:11px 13px;text-align:center;font-size:12.5px;line-height:1.5;border:1px solid;display:flex;flex-direction:column;align-items:center;gap:5px}
+  .sqf-yes{background:var(--accent-soft);border-color:#C7D7FE;color:var(--accent-deep)}
+  .sqf-no{background:#F5F7FA;border-color:var(--line-strong);color:var(--ink-2)}
+  .sqf-plabel{display:inline-flex;align-items:center;gap:5px;font-weight:800;font-size:11px}
+  .sqf-plabel svg{width:13px;height:13px;flex:none}
+  .sqf-yes .sqf-plabel{color:var(--accent-text)}
+  .sqf-no .sqf-plabel{color:var(--muted)}
+  .sqf-seclabel{width:100%;max-width:var(--w);display:flex;align-items:center;gap:12px;margin:12px 0 2px;font-family:var(--display);font-weight:700;font-size:12px;color:var(--muted)}
+  .sqf-seclabel::before,.sqf-seclabel::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+  .sqf-types{width:100%;max-width:var(--w);display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:2px}
+  .sqf-type{background:var(--surface);border:1px solid var(--line-strong);border-radius:13px;padding:11px 8px;text-align:center}
+  .sqf-type b{display:block;font-family:var(--display);font-weight:700;font-size:13px;color:var(--ink)}
+  .sqf-type span{display:block;font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.35}
+  @media(max-width:600px){.sqf{--w:100%}.sqf-branch{flex-direction:column}.sqf-types{grid-template-columns:1fr}}
   @media(max-width:600px){.sop-step{grid-template-columns:30px 1fr;gap:14px;padding-bottom:24px}.sop-marker{width:30px;height:30px;font-size:12px}.sop-step::after{left:14px;top:30px;bottom:-24px}}
   @media(prefers-reduced-motion:reduce){.sop-step::after,.sop-marker{transition:none}}
+  /* Support Queue flow chart */
+  .fc{--fc-blue:#1D4ED8;--fc-blue-bg:#EEF3FF;--fc-blue-line:#C7D7FE;
+    --fc-green:#047857;--fc-green-bg:#ECFDF5;--fc-green-line:#A7F3D0;--fc-green-ink:#065F46;
+    --fc-amber:#B45309;--fc-amber-bg:#FFF7ED;--fc-amber-line:#FED7AA;--fc-amber-ink:#7C3A0A;
+    --fc-red:#B42318;--fc-red-bg:#FEF3F2;--fc-red-line:#FDA29B;--fc-red-ink:#7A271A;
+    --fc-w:600px;--fc-card:0 1px 2px rgba(18,35,69,.06),0 12px 26px -14px rgba(18,35,69,.22);
+    display:flex;flex-direction:column;align-items:center;gap:0;margin:12px 0 2px}
+  .fc *{box-sizing:border-box}
+  .fc-pill{width:100%;max-width:var(--fc-w);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;color:#fff;border-radius:999px;padding:15px 24px;text-align:center;letter-spacing:-.01em}
+  .fc-pill svg{width:18px;height:18px;flex:none}
+  .fc-start{background:linear-gradient(135deg,#254377,#152a52);box-shadow:0 10px 26px -10px rgba(18,35,69,.55)}
+  .fc-end{background:linear-gradient(135deg,#059b6d,#046b49);box-shadow:0 10px 26px -10px rgba(4,120,87,.5)}
+  .fc-node{width:100%;max-width:var(--fc-w);background:var(--surface);border:1px solid var(--line-strong);border-radius:18px;padding:17px 19px;box-shadow:var(--fc-card)}
+  .fc-node h4{font-family:var(--display);font-weight:600;font-size:16.5px;letter-spacing:-.01em;margin:0 0 4px;color:var(--ink)}
+  .fc-node h4:last-child{margin:0}
+  .fc-node p{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
+  .fc-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px}
+  .fc-ic{flex:none;width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#f2f6ff,#e2ebff);color:var(--fc-blue);display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:inset 0 0 0 1px rgba(29,78,216,.12)}
+  .fc-ic svg{width:21px;height:21px}
+  .fc-tx{min-width:0}
+  .fc-decision{position:relative;border:1px solid var(--fc-blue-line);border-radius:18px;background:linear-gradient(180deg,#eef4ff,#fff 78%);padding:20px 20px 17px;text-align:center;box-shadow:0 1px 2px rgba(29,78,216,.08),0 14px 28px -16px rgba(29,78,216,.45);overflow:hidden}
+  .fc-decision::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--fc-blue),#3b82f6)}
+  .fc-decision h4{display:flex;align-items:center;justify-content:center;gap:11px}
+  .fc-qbadge{flex:none;width:29px;height:29px;border-radius:50%;background:var(--fc-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:15px;box-shadow:0 0 0 4px rgba(29,78,216,.14)}
+  .fc-decision p{margin-top:7px;text-align:center}
+  .fc-branch{width:100%;max-width:var(--fc-w);display:flex;gap:14px;flex-wrap:wrap}
+  .fc-path{flex:1;min-width:200px;border-radius:16px;padding:14px 16px;font-size:13.5px;line-height:1.5;display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;border:1px solid}
+  .fc-exit{background:var(--fc-green-bg);border-color:var(--fc-green-line);color:var(--fc-green-ink)}
+  .fc-stop{background:var(--fc-red-bg);border-color:var(--fc-red-line);color:var(--fc-red-ink)}
+  .fc-lbl{align-self:center;display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;border-radius:999px;padding:5px 12px 5px 9px;color:#fff}
+  .fc-lbl svg{width:14px;height:14px;flex:none}
+  .fc-lbl-stop{background:var(--fc-green)}
+  .fc-lbl-red{background:var(--fc-red)}
+  .fc-seclabel{width:100%;max-width:var(--fc-w);display:flex;align-items:center;gap:14px;margin:10px 0 2px;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.02em;color:var(--muted)}
+  .fc-seclabel::before,.fc-seclabel::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+  .fc-types{width:100%;max-width:var(--fc-w);display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+  .fc-type{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;background:var(--surface);border:1px solid var(--line-strong);border-radius:16px;padding:16px;box-shadow:var(--fc-card);transition:transform .16s ease,box-shadow .16s ease}
+  .fc-type:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(18,35,69,.06),0 18px 30px -16px rgba(18,35,69,.3)}
+  .fc-tic{width:34px;height:34px;border-radius:10px;background:var(--fc-blue-bg);color:var(--fc-blue);display:flex;align-items:center;justify-content:center;flex:none}
+  .fc-tic svg{width:19px;height:19px}
+  .fc-type h5{margin:0;font-family:var(--display);font-weight:700;font-size:14.5px;color:var(--ink)}
+  .fc-type p{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted);flex:1}
+  .fc-dest{display:inline-flex;align-items:center;gap:6px;align-self:center;font-size:11.5px;font-weight:700;color:var(--fc-blue);background:var(--fc-blue-bg);border:1px solid var(--fc-blue-line);border-radius:999px;padding:5px 11px;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+  .fc-dest svg{width:13px;height:13px;flex:none}
+  a.fc-dest:hover{background:var(--fc-blue);color:#fff;border-color:var(--fc-blue)}
+  a.fc-dest:focus-visible{outline:2px solid var(--fc-blue);outline-offset:2px}
+  .fc-type.wide{grid-column:1 / -1;flex-direction:column;align-items:center;text-align:center;gap:9px}
+  .fc-type.wide .fc-tic{align-self:center}
+  .fc-type.wide>div{flex:1;min-width:0}
+  .fc-type.wide .fc-dest{align-self:center;flex:none}
+  .fc-type-red{border-color:var(--fc-red-line);background:var(--fc-red-bg)}
+  .fc-type-red .fc-tic{background:#fde3e1;color:var(--fc-red)}
+  .fc-type-red h5{color:var(--fc-red-ink)}
+  .fc-type-red .fc-dest{color:var(--fc-red);background:#fde3e1;border-color:var(--fc-red-line)}
+  .fc-type-red a.fc-dest:hover{background:var(--fc-red);color:#fff;border-color:var(--fc-red)}
+  .fc-arrow{width:2px;height:24px;background:var(--line-strong);position:relative;flex:none;border-radius:2px}
+  .fc-arrow::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--line-strong)}
+  @media(max-width:600px){.fc-node,.fc-branch,.fc-pill{max-width:100%}.fc-node h4{font-size:15px}.fc-step{gap:11px}.fc-ic{width:38px;height:38px}.fc-types{grid-template-columns:1fr}.fc-type.wide{flex-direction:column;align-items:flex-start}.fc-type.wide .fc-dest{align-self:flex-start}}
+  @media(prefers-reduced-motion:reduce){.fc-type{transition:none}.fc-type:hover{transform:none}}
 
   /* PROJECT UPDATES (demo panel) */
   .updates{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:var(--shadow-sm)}
@@ -289,23 +386,23 @@
   .pill:hover{box-shadow:0 2px 12px rgba(74,124,155,.2);background:var(--accent-soft);transform:translateY(-1px)}
   .pill .ct{font-size:12px;color:var(--muted)}
   .faq-cat{margin-bottom:32px;scroll-margin-top:84px}
-  .faq-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-  .faq-cat-head .ic{font-size:20px;width:46px;height:46px;border-radius:12px;background:var(--surface);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;flex:none}
+  .faq-cat-head{display:flex;align-items:center;gap:13px;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.28)}
+  .faq-cat-badge{flex:none;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .faq-cat-head h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-  .faq-cat-head .subt{font-size:14px;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.6)}
-  .faq-cat-head .ct{margin-left:auto;font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.6);flex:none}
   .qa{background:var(--surface);border:1px solid var(--line);border-radius:13px;margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .15s,box-shadow .15s,opacity .16s ease}
   .qa.qa-anim-hidden{opacity:0}
   .qa:hover{box-shadow:0 2px 12px rgba(18,35,69,.08)}
   .qa.open{border-color:var(--slate);box-shadow:0 2px 16px rgba(74,124,155,.15)}
-  .qa-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:15.5px;font-weight:600;color:var(--ink);padding:17px 54px 17px 20px;position:relative;line-height:1.4;letter-spacing:-.01em}
+  .qa-q{width:100%;display:flex;align-items:center;gap:13px;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:15.5px;font-weight:600;color:var(--ink);padding:15px 18px;line-height:1.4;letter-spacing:-.01em}
   .qa-q:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:13px}
   .qa-q mark{background:var(--accent-soft);color:var(--accent-deep);border-radius:3px}
-  .plus{position:absolute;right:18px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:1px solid var(--line-strong);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:17px;transition:transform .26s,background .2s,color .2s,border-color .2s}
-  .qa.open .plus{transform:translateY(-50%) rotate(135deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+  .qa-num{flex:none;width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .qa-q .qtext{flex:1;min-width:0}
+  .chev{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line-strong);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;transition:transform .26s,background .2s,color .2s,border-color .2s}
+  .qa.open .chev{transform:rotate(180deg);background:var(--accent);color:#fff;border-color:var(--accent)}
   .qa-panel{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .3s ease}
   .qa.open .qa-panel{opacity:1}
-  .qa-in{padding:0 20px 18px;font-size:14.5px;color:var(--muted)}
+  .qa-in{padding:2px 22px 18px 61px;font-size:14.5px;color:var(--muted)}
   .qa-in ol,.qa-in ul{margin:8px 0 8px 20px;display:flex;flex-direction:column;gap:6px}
   .qa-in a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px}
   .qa-in b{color:var(--ink)}
@@ -621,14 +718,7 @@
       <button class="tab" data-view="faq">FAQ</button>
       <button class="tab" data-view="jd">Job Description</button>
       <button class="tab" data-view="metrics" style="display:none">Metrics</button>
-      <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="tab" id="resourcesDropdownBtn" type="button" aria-haspopup="true" aria-expanded="false">Project Resources <span class="caret" aria-hidden="true">▾</span></button>
-        <div class="dropdown-menu" id="resourcesMenu" role="menu">
-          <button class="dropdown-item tab" type="button" data-view="resources-main" role="menuitem">Project Resources</button>
-          <button class="dropdown-item tab" type="button" data-view="resources" role="menuitem">Multimango and Video Eval</button>
-          <button class="dropdown-item tab" type="button" data-view="sheets" role="menuitem">Sheets</button>
-        </div>
-      </div>
+      <button class="tab" data-view="resources-main">Project Resources</button>
       <a class="tab" href="mailto:support@op.workada.co" target="_blank" rel="noopener">Support ↗</a>
       <a class="btn accent" href="https://workada.co" target="_blank" rel="noopener">Dashboard →</a>
     </div>
@@ -928,14 +1018,32 @@
       <span class="stage-num">6</span>
       <div class="stage-head-text"><span class="stage-eyebrow">Support Queue</span><h3 class="stage-title">Using Support Well</h3></div>
     </div>
-    <div class="sop-track">
-      <div class="sop-step reveal"><span class="sop-marker">01</span><div class="sop-body"><h4>Be the first point of contact</h4><p>Try to resolve it before a contributor submits their own ticket, that's a core part of the role.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">02</span><div class="sop-body"><h4>Exhaust what's already available</h4><p>Lean on other pod leads for answers before submitting a ticket yourself. Someone may have already hit the same issue.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">03</span><div class="sop-body"><h4>Don't duplicate tickets</h4><p>Pod leads and contributors shouldn't both submit a ticket about the same issue, and neither should submit more than one for it.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">04</span><div class="sop-body"><h4>Only escalate the ticket ID</h4><p>If a ticket's already been submitted to support, don't also send it to your Pod Lead Experience Specialist, unless it truly needs escalating, in which case just pass along the ticket ID.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">05</span><div class="sop-body"><h4>Ask around, or file one shared ticket</h4><p>Before submitting a ticket or reaching out to your Pod Lead Experience Specialist, check with other pod leads and sit tight, a solution may already be in the works. If it's affecting several pods, submit <b>one communal ticket</b> instead of several individual ones.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">06</span><div class="sop-body"><h4>It's okay to let something resolve itself</h4><p>Things move fast here, and improvements ship constantly. Not everything needs an immediate ticket.</p></div></div>
-      <div class="sop-step reveal"><span class="sop-marker">07</span><div class="sop-body"><h4>Use your Workada email</h4><p>When submitting a ticket, use the same email address that's linked to your Workada account so it can be matched to your profile.</p></div></div>
+    <div class="sqf" role="group" aria-label="Support queue flow: sending an issue to the right place">
+      <div class="sqf-pill sqf-start">A blocker comes up</div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-dec"><h4><span class="sqf-qb" aria-hidden="true">?</span>Did you try to solve it, and ask other pod leads?</h4></div>
+      <div class="sqf-branch">
+        <div class="sqf-path sqf-yes"><span class="sqf-plabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Yes</span>Send it to the right place.</div>
+        <div class="sqf-path sqf-no"><span class="sqf-plabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Not yet</span>Do that first. Most things have a faster path than a ticket.</div>
+      </div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-seclabel">Send it to the right place</div>
+      <div class="sqf-types">
+        <div class="sqf-type"><b>Pay</b><span>Timer, hours, earnings</span></div>
+        <div class="sqf-type"><b>Task</b><span>A task or its content</span></div>
+        <div class="sqf-type"><b>Platform</b><span>Errors, access, login</span></div>
+      </div>
+      <div class="sqf-box sqf-route"><p>All three go to <a href="mailto:support@op.workada.co">support@op.workada.co</a>. A role question, feedback, or an aging ticket goes to the <a href="#" onclick="goToResource('res-support-form');return false;">Support Form</a>. For conduct, review the <a href="#" onclick="goToResource('res-coc');return false;">Code of Conduct</a> and escalate directly.</p></div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-dec"><h4><span class="sqf-qb" aria-hidden="true">?</span>Product bug: Is it already a known issue?</h4></div>
+      <div class="sqf-branch">
+        <div class="sqf-path sqf-yes"><span class="sqf-plabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>No</span>Go ahead and file it.</div>
+        <div class="sqf-path sqf-no"><span class="sqf-plabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Yes</span>Don&#39;t file another. Send just the ticket ID to your Pod Lead Experience Specialist.</div>
+      </div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-box"><h4>File it with the details</h4><p>Email <a href="mailto:support@op.workada.co">support@op.workada.co</a> with a screenshot, the task ID or dates, and the exact error. Use your Workada email so it matches your profile.</p></div>
+      <div class="sqf-line" aria-hidden="true"></div>
+      <div class="sqf-pill sqf-end">Routed the right way</div>
     </div>
     <div class="note" style="margin-top:8px"><span class="ntag">Why this matters</span> Fewer duplicate and premature tickets means support can answer everyone faster, including you.</div>
   </div>
@@ -1206,14 +1314,6 @@
           <svg class="res-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </summary>
         <div class="res-drop-body">
-          <a class="res-sublink" id="res-support-form" href="https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=header" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For feedback, sharing ideas, escalating aging tickets, referring a contributor to pod lead, and questions around your role.</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
-          <a class="res-sublink" id="res-coc" href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Code of Conduct</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
           <a class="res-sublink" id="res-escalate" href="mailto:valeria.ballesteros@meridian.ai">
             <span class="res-body"><span class="res-name">Escalate Issues with Contributors</span><span class="res-sub">Email valeria.ballesteros@meridian.ai with full context of the troublesome situation between pod member and team.</span></span>
             <span class="res-arrow">↗</span>
@@ -1222,7 +1322,7 @@
             <span class="res-body"><span class="res-name">Support FAQ for Contributors</span></span>
             <span class="res-arrow">↗</span>
           </a>
-          <a class="res-sublink" href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">
+          <a class="res-sublink" id="res-metrics-template" href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">
             <span class="res-body"><span class="res-name">Contributor Metrics Tracking Template</span></span>
             <span class="res-arrow">↗</span>
           </a>
@@ -1234,25 +1334,8 @@
             <span class="res-body"><span class="res-name">Offboarding Form</span></span>
             <span class="res-arrow">↗</span>
           </a>
-          <a class="res-sublink" id="res-vacation" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform?usp=header" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Vacation / Time Off Form</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
-          <a class="res-sublink" id="res-substitution" href="https://docs.google.com/document/d/1q61VW1tEWTwdwBzzJGtKGvMJmXL8ZA20bDf4PiYMAfQ/edit?usp=sharing" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Substitution Overview</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
-          <a class="res-sublink" id="res-weekly-reflection" href="https://docs.google.com/forms/d/e/1FAIpQLSfnnBHxcfP_g6HWYJ2xhzHMiQ4bBnHfxLrfk-lhWuE2rxC9IQ/viewform?usp=header" target="_blank" rel="noopener">
-            <span class="res-body"><span class="res-name">Weekly Reflection Form</span><span class="res-sub">To be filled out every Monday</span></span>
-            <span class="res-arrow">↗</span>
-          </a>
         </div>
       </details>
-      <div class="res-group-label">Support</div>
-      <a class="reslink" id="res-support-ticket" href="mailto:support@op.workada.co" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Report a product issue</span><span class="res-sub">For product bugs only, timer, pay, tasks, error messages. Email support@op.workada.co directly. Role questions, feedback, and escalations go through the Support Form above instead.</span></span>
-        <span class="res-arrow">↗</span>
-      </a>
     </div>
   </div>
 
@@ -1293,12 +1376,34 @@
         </div>
       </details>
       <div class="res-group-label">Forms &amp; Trackers</div>
-      <a class="reslink" id="res-metrics-template" href="https://docs.google.com/spreadsheets/d/1J2rIT_loBPO9Fp_dbpNJlvtCKyuBhNxPxeGy7xDvpWk/edit?usp=sharing" target="_blank" rel="noopener">
-        <span class="res-body"><span class="res-name">Contributor Metrics Tracking Template</span><span class="res-sub">Track onboarding, hours, scores, and defect rate for your pod</span></span>
+      <a class="reslink" id="res-weekly-reflection" href="https://docs.google.com/forms/d/e/1FAIpQLSfnnBHxcfP_g6HWYJ2xhzHMiQ4bBnHfxLrfk-lhWuE2rxC9IQ/viewform?usp=header" target="_blank" rel="noopener">
+        <span class="res-body"><span class="res-name">Weekly Reflection Form</span><span class="res-sub">To be filled out every Monday</span></span>
+        <span class="res-arrow">↗</span>
+      </a>
+      <a class="reslink" id="res-vacation" href="https://docs.google.com/forms/d/e/1FAIpQLSftoBwq8WfOKNy8yPEyYA5LzfsdhVh6t0wQJJuDzmK26J6YVQ/viewform?usp=header" target="_blank" rel="noopener">
+        <span class="res-body"><span class="res-name">Vacation / Time Off Form</span><span class="res-sub">Report planned time off ahead of your dates</span></span>
         <span class="res-arrow">↗</span>
       </a>
       <a class="reslink" id="res-offboarding" href="https://docs.google.com/forms/d/e/1FAIpQLSetoJk5xmp1xtKIXSu2e7-AT-fD3AkNe_sYMS-la0BJD_lxTQ/viewform" target="_blank" rel="noopener">
         <span class="res-body"><span class="res-name">Offboarding Form</span><span class="res-sub">Submit an offboarding request</span></span>
+        <span class="res-arrow">↗</span>
+      </a>
+      <div class="res-group-label">Coverage &amp; conduct</div>
+      <a class="reslink" id="res-substitution" href="https://docs.google.com/document/d/1q61VW1tEWTwdwBzzJGtKGvMJmXL8ZA20bDf4PiYMAfQ/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="res-body"><span class="res-name">Substitution Overview</span><span class="res-sub">How pod coverage is assigned while you're out</span></span>
+        <span class="res-arrow">↗</span>
+      </a>
+      <a class="reslink" id="res-coc" href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="res-body"><span class="res-name">Code of Conduct</span><span class="res-sub">The professionalism standard for your pod</span></span>
+        <span class="res-arrow">↗</span>
+      </a>
+      <div class="res-group-label">Support</div>
+      <a class="reslink" id="res-support-form" href="https://docs.google.com/forms/d/e/1FAIpQLScU5P4cjA4T9oDotQq3nv8Qs_5WP1dHfwg0NkwrQMRPHeLIRw/viewform?usp=header" target="_blank" rel="noopener">
+        <span class="res-body"><span class="res-name">Support Form</span><span class="res-sub">For feedback, sharing ideas, escalating aging tickets, referring a contributor to pod lead, and questions around your role.</span></span>
+        <span class="res-arrow">↗</span>
+      </a>
+      <a class="reslink" id="res-support-ticket" href="mailto:support@op.workada.co">
+        <span class="res-body"><span class="res-name">Report a product issue</span><span class="res-sub">For product bugs only, timer, pay, tasks, error messages. Email support@op.workada.co directly.</span></span>
         <span class="res-arrow">↗</span>
       </a>
       <div class="res-group-label">Message templates</div>
@@ -1660,15 +1765,15 @@ function initials(n){const c=n.replace(/[\[\]]/g,'').trim();const p=c.split(/\s+
   b.addEventListener('click',()=>{$('#searchInput').value='';applySearch('');document.getElementById('cat-'+cat.id).scrollIntoView({behavior:'smooth',block:'start'});});
   p.appendChild(b);});})();
 
-(function(){const list=$('#faqList');FAQ.forEach(cat=>{
-  const sec=make('div','faq-cat reveal');sec.id='cat-'+cat.id;const n=cat.items.length;
+(function(){const list=$('#faqList');FAQ.forEach((cat,ci)=>{
+  const sec=make('div','faq-cat reveal');sec.id='cat-'+cat.id;
   const head=make('div','faq-cat-head');
-  head.innerHTML='<span class="ic">'+cat.icon+'</span><div><h3>'+cat.title+'</h3><div class="subt">'+cat.subt+'</div></div><span class="ct">'+n+(n===1?' question':' questions')+'</span>';
+  head.innerHTML='<span class="faq-cat-badge" aria-hidden="true">'+String.fromCharCode(65+ci)+'</span><h3>'+cat.title+'</h3>';
   sec.appendChild(head);
-  cat.items.forEach(it=>{
+  cat.items.forEach((it,ii)=>{
     const qa=make('div','qa');qa.dataset.text=(it.q+' '+stripHtml(it.a)).toLowerCase();
     const btn=make('button','qa-q');btn.type='button';btn.setAttribute('aria-expanded','false');
-    btn.innerHTML='<span class="qtext">'+it.q+'</span><span class="plus" aria-hidden="true">+</span>';
+    btn.innerHTML='<span class="qa-num" aria-hidden="true">'+(ii+1)+'</span><span class="qtext">'+it.q+'</span><span class="chev" aria-hidden="true">▾</span>';
     const panel=make('div','qa-panel');const inner=make('div','qa-in');
     inner.innerHTML=it.a;
     panel.appendChild(inner);
